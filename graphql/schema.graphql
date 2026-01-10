@@ -1,0 +1,144 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"Indicates what fields are available at the top level of a query operation."
+type Query {
+    "Find a single user by an identifying attribute."
+    user(
+      "Search by primary key."
+      id: ID @eq @rules(apply: ["prohibits:email", "required_without:email"])
+
+      "Search by email address."
+      email: String @eq @rules(apply: ["prohibits:id", "required_without:id", "email"])
+    ): User @find
+
+    "List multiple users."
+    users(
+      "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
+      name: String @where(operator: "like")
+    ): [User!]! @paginate(defaultCount: 10)
+
+    "Search movies using GraphQL with advanced filtering"
+    searchMovies(
+      "Search query for movie titles, actors, directors, etc."
+      query: String @rules(apply: ["min:1", "max:100"])
+      
+      "Page number for pagination"
+      page: Int = 1 @rules(apply: ["min:1", "max:100"])
+      
+      "Number of results per page"
+      limit: Int = 12 @rules(apply: ["min:1", "max:50"])
+      
+      "Filter by movie genre"
+      genre: String
+      
+      "Filter by release year"
+      year: String
+      
+      "Filter by rating (PG, PG-13, R, etc.)"
+      rating: String
+      
+      "Sort results by (title, year, rating, favorites)"
+      sortBy: String = "relevance"
+      
+      "Sort order (asc, desc)"
+      sortOrder: String = "desc"
+    ): MovieSearchResult! @field(resolver: "App\\GraphQL\\Queries\\SearchMovies")
+
+    "Get all movies with pagination and filtering"
+    movies(
+      page: Int = 1
+      limit: Int = 12
+      genre: String
+      year: String
+      sortBy: String = "created_at"
+      sortOrder: String = "desc"
+    ): MovieSearchResult! @field(resolver: "App\\GraphQL\\Queries\\Movies")
+
+    "Get a single movie by ID"
+    movie(id: ID! @eq): Movie @find
+}
+
+type Movie {
+    id: ID  # Nullable for OMDb API movies
+    imdbID: String
+    title: String!
+    year: String
+    rated: String
+    released: String
+    runtime: String
+    genre: String
+    director: String
+    writer: String
+    actors: String
+    plot: String
+    language: String
+    country: String
+    awards: String
+    poster: String
+    ratings: [MovieRating!]
+    metascore: String
+    imdbRating: String
+    imdbVotes: String
+    type: String
+    dvd: String
+    boxOffice: String
+    production: String
+    website: String
+    created_at: DateTime
+    updated_at: DateTime
+    favorited_by_count: Int!
+    is_favorited: Boolean
+}
+
+type MovieRating {
+    Source: String
+    Value: String
+}
+
+type MovieSearchResult {
+    data: [Movie!]!
+    pagination: PaginationInfo!
+    filters: SearchFilters!
+}
+
+type PaginationInfo {
+    current_page: Int!
+    last_page: Int!
+    per_page: Int!
+    total: Int!
+    has_more_pages: Boolean!
+}
+
+type SearchFilters {
+    query: String
+    genre: String
+    year: String
+    rating: String
+    sort_by: String!
+    sort_order: String!
+}
+
+"Account of a person who uses this application."
+type User {
+    "Unique primary key."
+    id: ID!
+
+    "Non-unique name."
+    name: String!
+
+    "Unique email address."
+    email: String!
+
+    "When the email was verified."
+    email_verified_at: DateTime
+
+    "When the account was created."
+    created_at: DateTime!
+
+    "When the account was last updated."
+    updated_at: DateTime!
+
+    "User's favorite movies."
+    favorites: [Movie!]! @belongsToMany(relation: "favoritedMovies")
+}

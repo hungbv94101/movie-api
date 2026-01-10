@@ -1,0 +1,16 @@
+.git
+.gitignore
+README.md
+.env
+.env.example
+.dockerignore
+Dockerfile
+.DS_Store
+node_modules
+npm-debug.log
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+vendor
+.env.docker

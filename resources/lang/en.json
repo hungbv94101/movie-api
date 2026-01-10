@@ -1,0 +1,24 @@
+{
+    "Movie title is required": "Movie title is required",
+    "Movie year is required": "Movie year is required", 
+    "Year must be a valid number": "Year must be a valid number",
+    "Year must be at least 1900": "Year must be at least 1900",
+    "Year cannot be in the future": "Year cannot be in the future",
+    "IMDB rating must be between 0 and 10": "IMDB rating must be between 0 and 10",
+    "Poster must be a valid URL": "Poster must be a valid URL",
+    "A movie with this IMDB ID already exists": "A movie with this IMDB ID already exists",
+    "Movie ID is required": "Movie ID is required",
+    "Movie ID must be a valid number": "Movie ID must be a valid number",
+    "The selected movie does not exist": "The selected movie does not exist",
+    
+    "validation.required": "The :attribute field is required",
+    "validation.string": "The :attribute must be a string",
+    "validation.integer": "The :attribute must be an integer", 
+    "validation.numeric": "The :attribute must be a number",
+    "validation.max.string": "The :attribute may not be greater than :max characters",
+    "validation.min": "The :attribute must be at least :min",
+    "validation.between.numeric": "The :attribute must be between :min and :max",
+    "validation.url": "The :attribute must be a valid URL",
+    "validation.unique": "The :attribute has already been taken",
+    "validation.exists": "The selected :attribute is invalid"
+}

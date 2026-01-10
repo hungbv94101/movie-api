@@ -1,0 +1,24 @@
+{
+    "Movie title is required": "Tên phim là bắt buộc",
+    "Movie year is required": "Năm phim là bắt buộc",
+    "Year must be a valid number": "Năm phải là một số hợp lệ", 
+    "Year must be at least 1900": "Năm phải từ 1900 trở lên",
+    "Year cannot be in the future": "Năm không thể ở tương lai",
+    "IMDB rating must be between 0 and 10": "Điểm IMDB phải từ 0 đến 10",
+    "Poster must be a valid URL": "Poster phải là URL hợp lệ",
+    "A movie with this IMDB ID already exists": "Phim với IMDB ID này đã tồn tại",
+    "Movie ID is required": "ID phim là bắt buộc",
+    "Movie ID must be a valid number": "ID phim phải là số hợp lệ", 
+    "The selected movie does not exist": "Phim được chọn không tồn tại",
+    
+    "validation.required": "Trường :attribute là bắt buộc",
+    "validation.string": ":attribute phải là chuỗi ký tự",
+    "validation.integer": ":attribute phải là số nguyên",
+    "validation.numeric": ":attribute phải là số", 
+    "validation.max.string": ":attribute không được vượt quá :max ký tự",
+    "validation.min": ":attribute phải ít nhất :min",
+    "validation.between.numeric": ":attribute phải từ :min đến :max",
+    "validation.url": ":attribute phải là URL hợp lệ",
+    "validation.unique": ":attribute đã được sử dụng",
+    "validation.exists": ":attribute được chọn không hợp lệ"
+}
