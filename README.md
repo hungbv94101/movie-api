@@ -135,7 +135,7 @@ export const movieService = {
 
 ## 🐳 Docker Setup
 
-### docker-compose.yml đã có sẵn trong project
+### docker-compose.yml is already included in the project
 ```bash
 # Start containers
 docker-compose up -d
@@ -147,17 +147,18 @@ docker-compose exec app php artisan migrate
 docker-compose logs -f app
 ```
 
+
 ## 🔧 Environment Variables
 
-Các biến environment cần thiết:
+Required environment variables:
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `OMDB_API_KEY` | API key từ OMDb | Yes |
+| `OMDB_API_KEY` | API key from OMDb | Yes |
 | `DB_HOST` | Database host | Yes |
 | `DB_DATABASE` | Database name | Yes |
-| `SANCTUM_STATEFUL_DOMAINS` | Domains cho React | Yes |
-| `MAIL_HOST` | SMTP host cho email | No |
+| `SANCTUM_STATEFUL_DOMAINS` | Domains for React | Yes |
+| `MAIL_HOST` | SMTP host for email | No |
 
 ## 🧪 Testing
 
@@ -198,19 +199,19 @@ APP_URL=https://yourdomain.com
 
 ### CORS Issues
 ```env
-# Thêm domain React vào Sanctum
+# Add React domain to Sanctum
 SANCTUM_STATEFUL_DOMAINS=localhost:3000,yourdomain.com
 ```
 
 ### Token Authentication
 ```javascript
-// Đảm bảo gửi Bearer token
+// Ensure Bearer token is sent
 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 ```
 
 ### Database Connection
 ```bash
-# Kiểm tra MySQL container
+# Check MySQL container
 docker-compose ps
 docker-compose logs mysql
 ```
@@ -223,4 +224,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 **Happy Coding!** 🎉
 
-Nếu có vấn đề gì, tạo issue hoặc liên hệ developer.
+If you have any issues, create an issue or contact the developer.
