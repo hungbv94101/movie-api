@@ -1,15 +1,15 @@
-# Movie API - Laravel GraphQL & Sanctum
+# Movie API - Laravel GraphQL
 
-A modern movie management API built with Laravel, featuring GraphQL integration via Lighthouse, Laravel Sanctum authentication, and robust database-driven movie search functionality.
+A modern movie management API built with Laravel, featuring GraphQL integration via Lighthouse, Laravel authentication, and robust database-driven movie search functionality.
 
 ## 🎬 Features
 
-### Authentication (Laravel Sanctum)
+### Authentication
 - User registration and login
 - Email verification
 - Password reset with temporary password
 - API token-based authentication
-- Secure logout with token revocation
+- Secure logout
 
 ### Movie Management
 - Database-first movie search
@@ -35,16 +35,14 @@ A modern movie management API built with Laravel, featuring GraphQL integration 
 
 - **Framework**: Laravel 11
 - **GraphQL**: Lighthouse GraphQL 6.64.0
-- **Authentication**: Laravel Sanctum
+- **Authentication**: API Token (Bearer), RequirePasswordChange middleware
 - **Database**: MySQL 8.0
 - **ORM**: Eloquent
 - **Containerization**: Docker with Docker Compose
 - **Testing**: PHPUnit
 - **API Documentation**: GraphQL Playground
 
-## 🚀 Quick Setup (Docker Only)
-
-> **Note:** All services (API, MySQL, nginx) run inside Docker containers. You do **not** need to run `php artisan serve` or install PHP/MySQL locally.
+## 🚀 Quick Setup 
 
 ### 1. Clone the repository
 ```bash
@@ -116,7 +114,7 @@ php artisan serve
 
 ### v1.0.0 (Current)
 - ✅ Initial release with GraphQL integration
-- ✅ Laravel Sanctum authentication
+- ✅ Laravel authentication
 - ✅ Database-first movie search
 - ✅ Docker containerization
 - ✅ Comprehensive API documentation
@@ -171,7 +169,6 @@ Required environment variables:
 | `OMDB_API_KEY` | API key from OMDb | Yes |
 | `DB_HOST` | Database host | Yes |
 | `DB_DATABASE` | Database name | Yes |
-| `SANCTUM_STATEFUL_DOMAINS` | Domains for React | Yes |
 | `MAIL_HOST` | SMTP host for email | No |
 
 ## 🧪 Testing
@@ -210,12 +207,6 @@ APP_URL=https://yourdomain.com
 - Use strong passwords for database
 
 ## ❗ Troubleshooting
-
-### CORS Issues
-```env
-# Add React domain to Sanctum
-SANCTUM_STATEFUL_DOMAINS=localhost:3000,yourdomain.com
-```
 
 ### Token Authentication
 ```javascript
