@@ -70,7 +70,7 @@ docker-compose exec app php artisan movies:seed --count=100
 - Edit `.env` for custom config if needed (default works for Docker setup)
 
 ## 🔑 Password Reset Flow
-- User requests password reset → receives a **temporary password** via email
+- User requests password reset → receives a **temporary password** via email. (Currently, due to email issues, please check the password in the server logs.)
 - Login with temporary password → **must change password** before using the app
 - After password change, user can access all features
 
