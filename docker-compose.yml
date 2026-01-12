@@ -17,20 +17,20 @@ services:
       - db
       - redis
 
-  # Nginx Web Server Service  
-  nginx:
-    image: nginx:alpine
-    container_name: nginx_server
-    restart: unless-stopped
-    ports:
-      - "8000:80"
-    volumes:
-      - ./:/var/www
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    networks:
-      - laravel
-    depends_on:
-      - app
+  # # Nginx Web Server Service  
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: nginx_server
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8000:80"
+  #   volumes:
+  #     - ./:/var/www
+  #     - ./nginx/conf.d:/etc/nginx/conf.d
+  #   networks:
+  #     - laravel
+  #   depends_on:
+  #     - app
 
   # MySQL Database Service
   db:

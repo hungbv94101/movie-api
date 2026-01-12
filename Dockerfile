@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     supervisor \
+    default-mysql-client \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
     && docker-php-ext-enable opcache

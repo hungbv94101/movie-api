@@ -39,6 +39,6 @@ return [
 
     'max_age' => 86400, // 24 hours
 
-    'supports_credentials' => env('APP_ENV') === 'local' ? false : true,
+    'supports_credentials' => true,
 
 ];

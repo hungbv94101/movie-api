@@ -55,6 +55,7 @@ cd movie-project/movie-api
 ### 2. Start all services
 ```bash
 docker-compose up --build
+docker-compose up -d
 ```
 - API: http://localhost:8000
 - GraphQL Playground: http://localhost:8000/graphql
@@ -62,12 +63,25 @@ docker-compose up --build
 
 ### 3. Run migrations & seeders (inside container)
 ```bash
-docker-compose exec app php artisan migrate
-docker-compose exec app php artisan movies:seed --count=100
+php artisan migrate
+php artisan movies:seed --count=100
 ```
 
 ### 4. Environment variables
 - Edit `.env` for custom config if needed (default works for Docker setup)
+
+### 5. Clear cache
+```bash
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
+```
+
+### 6. Start server
+```bash
+php artisan serve
+```
 
 ## 🔑 Password Reset Flow
 - User requests password reset → receives a **temporary password** via email. (Currently, due to email issues, please check the password in the server logs.)

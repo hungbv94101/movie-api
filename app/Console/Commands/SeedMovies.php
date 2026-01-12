@@ -7,7 +7,7 @@ use App\Models\Movie;
 
 class SeedMovies extends Command
 {
-    protected $signature = 'movies:seed {--count=100 : Number of movies to seed}';
+    protected $signature = 'movies:seedFake {--count=100 : Number of movies to seed}';
     protected $description = 'Seed movies table with fake data';
 
     public function handle()
