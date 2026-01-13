@@ -1,15 +1,17 @@
 # Movie API - Laravel GraphQL
 
-A modern movie management API built with Laravel, featuring GraphQL integration via Lighthouse, Laravel authentication, and robust database-driven movie search functionality.
+A modern movie management API built with Laravel, featuring GraphQL integration via Lighthouse, Laravel Sanctum authentication, and robust database-driven movie search functionality.
 
 ## 🎬 Features
 
-### Authentication
+### Authentication (Laravel Sanctum)
 - User registration and login
 - Email verification
 - Password reset with temporary password
-- API token-based authentication
-- Secure logout
+- Laravel Sanctum token-based authentication (Bearer tokens)
+- Protected routes with `auth:sanctum` middleware
+- Secure logout with token revocation
+- Automatic token validation on all protected endpoints
 
 ### Movie Management
 - Database-first movie search
@@ -35,7 +37,8 @@ A modern movie management API built with Laravel, featuring GraphQL integration 
 
 - **Framework**: Laravel 11
 - **GraphQL**: Lighthouse GraphQL 6.64.0
-- **Authentication**: API Token (Bearer), RequirePasswordChange middleware
+- **Authentication**: Laravel Sanctum (API Token with Bearer authentication)
+- **Middleware**: `auth:sanctum` for protected routes, RequirePasswordChange
 - **Database**: MySQL 8.0
 - **ORM**: Eloquent
 - **Containerization**: Docker with Docker Compose
@@ -112,7 +115,14 @@ php artisan serve
 
 ## 📈 Version History
 
-### v1.0.0 (Current)
+### v2.0.0 (Current)
+- ✅ Laravel Sanctum authentication integration
+- ✅ Protected routes with `auth:sanctum` middleware
+- ✅ Token-based API authentication (Bearer tokens)
+- ✅ GraphQL authentication support
+- ✅ Enhanced security with middleware aliases
+
+### v1.0.0
 - ✅ Initial release with GraphQL integration
 - ✅ Laravel authentication
 - ✅ Database-first movie search

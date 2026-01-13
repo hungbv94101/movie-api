@@ -37,7 +37,7 @@ Route::prefix('movies')->group(function () {
 });
 
 // Protected routes
-Route::middleware([\App\Http\Middleware\RequirePasswordChange::class])->group(function () {
+Route::middleware(['auth:sanctum', \App\Http\Middleware\RequirePasswordChange::class])->group(function () {
     
     // Auth routes
     Route::prefix('auth')->group(function () {
