@@ -61,7 +61,7 @@ type Query {
 
 type Movie {
     id: ID  # Nullable for OMDb API movies
-    imdbID: String
+    imdbID: String @rename(attribute: "imdb_id")
     title: String!
     year: String
     rated: String
@@ -78,8 +78,8 @@ type Movie {
     poster: String
     ratings: [MovieRating!]
     metascore: String
-    imdbRating: String
-    imdbVotes: String
+    imdbRating: String @rename(attribute: "imdb_rating")
+    imdbVotes: String @rename(attribute: "imdb_votes")
     type: String
     dvd: String
     boxOffice: String

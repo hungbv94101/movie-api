@@ -46,6 +46,14 @@ class Movie extends Model
     ];
 
     /**
+     * Get imdbID accessor (camelCase for GraphQL)
+     */
+    public function getImdbIDAttribute()
+    {
+        return $this->attributes['imdb_id'] ?? null;
+    }
+
+    /**
      * Users who favorited this movie
      */
     public function favoritedBy(): BelongsToMany
